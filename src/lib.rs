@@ -1,14 +1,10 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+//! FastLZ compressor/decompressor for nom
+//!
+//! Native rust implementation of the FastLZ compression and decompression library, as a nom
+//! parser/combinator. Currently only deflates.
+//!
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+mod cb;
+mod deflate;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+pub use deflate::deflate;
